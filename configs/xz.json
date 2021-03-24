@@ -1,0 +1,10 @@
+{
+  "self-service": [
+    {
+      "field": "firstName",
+      "validator": [
+        "min"
+      ]
+    }
+  ]
+}
