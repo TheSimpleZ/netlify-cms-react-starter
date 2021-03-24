@@ -15,11 +15,11 @@ collections: # A list of collections the CMS should be able to edit
       preview: false
     files:
       - file: configs/supportedFields.json
-        label: supported fields
+        label: supported-fields
         name: supported-fields
         fields:
           - label: supported-fields
-            name: supported-fields, 
+            name: supported-fields
             widget: list
             field: 
               label: supported-fields
@@ -44,10 +44,11 @@ collections: # A list of collections the CMS should be able to edit
               widget: object
               fields: 
                 - label: "Field"
-                  name: "author"
+                  name: fieldType
                   widget: "relation"
                   collection: supported-fields
-                  search_fields: [supported-fields]
-                  value_field: supported-fields
-                  display_fields: ["supported-fields"]
+                  file: supported-fields
+                  search_fields: [supported-fields.*.supported-fields]
+                  value_field: supported-fields.*.supported-fields
+                  display_fields: [supported-fields.*.supported-fields]
             
