@@ -1,0 +1,9 @@
+prose:
+  rooturl: 'market-configs'
+  metadata:
+    market-configs:
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
