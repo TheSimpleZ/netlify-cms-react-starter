@@ -4,6 +4,11 @@
       "name": "min 1 char",
       "id": "min",
       "regex": "^\\\\w+$"
+    },
+    {
+      "name": "max 60 chars",
+      "id": "max",
+      "regex": "^\\\\w{,60}$"
     }
   ]
 }
