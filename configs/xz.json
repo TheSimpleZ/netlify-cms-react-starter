@@ -6,6 +6,12 @@
         "min",
         "max"
       ]
+    },
+    {
+      "field": "lastName",
+      "validator": [
+        "min"
+      ]
     }
   ]
 }
