@@ -1,0 +1,31 @@
+[
+  {
+    "id": "firstName",
+    "type": "text",
+    "validateWith": "^\\w+$",
+    "required": true
+  },
+  {
+    "id": "lastName",
+    "type": "text",
+    "validateWith": "^\\w+$",
+    "required": true
+  },
+  {
+    "id": "email",
+    "type": "email",
+    "required": true
+  },
+  {
+    "id": "telephoneMobile",
+    "type": "tel",
+    "validateWith": "^\\+393\\d{9}$",
+    "required": true
+  },
+  {
+    "id": "taxRegNo",
+    "type": "text",
+    "validateWith": "^\\w{16}$",
+    "required": true
+  }
+]
