@@ -49,38 +49,41 @@ collections: # A list of collections the CMS should be able to edit
                 name: regex
                 widget: string
 
-  - name: "Country Configs"
-    label: "Configs"
+  - name: market-configs
+    label: Market configs
     delete: false # Prevent users from deleting documents in this collection
     editor:
-      preview: false
-    files:
-      - file: "configs/xz.json"
-        label: "XZ Settings"
-        name: "xz-settings"
-        fields:
-          - label: Self-Service
-            name: self-service
-            widget: list
-            fields: 
-              - label: Field
-                name: field
-                widget: relation
-                collection: configs
-                file: supported_fields
-                search_fields: ["supported_fields.*.name"]
-                display_fields: ["supported_fields.*.name"]
-                value_field: "supported_fields.*.id"
-              - label: Validator
-                name: validator
-                widget: relation
-                collection: configs
-                file: validators
-                multiple: true
-                search_fields: ["validators.*.name"]
-                display_fields: ["validators.*.name"]
-                value_field: "validators.*.id"
-              - label: Required
-                name: required
-                widget: boolean
+      preview: true
+    folder: market-configs
+    create: true
+    fields:
+      - label: Market
+        name: "title"
+        widget: "string"
+      - label: Returns form
+        label_singular: input field
+        name: returns-form
+        widget: list
+        fields: 
+          - label: Field
+            name: field
+            widget: relation
+            collection: configs
+            file: supported_fields
+            search_fields: ["supported_fields.*.name"]
+            display_fields: ["supported_fields.*.name"]
+            value_field: "supported_fields.*.id"
+          - label: Validator
+            name: validator
+            widget: relation
+            collection: configs
+            file: validators
+            multiple: true
+            search_fields: ["validators.*.name"]
+            display_fields: ["validators.*.name"]
+            value_field: "validators.*.id"
+          - label: Required
+            name: required
+            widget: boolean
+            required: false
         
