@@ -1,0 +1,9 @@
+{
+  "validators": [
+    {
+      "name": "min 1 char",
+      "id": "min",
+      "regex": "^\\\\w+$"
+    }
+  ]
+}
