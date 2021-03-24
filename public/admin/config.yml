@@ -8,23 +8,50 @@ media_folder: "public/images/uploads" # Media files will be stored in the repo u
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
 collections: # A list of collections the CMS should be able to edit
-  - name: supported-fields
+  - name: configs
     label: Fields
     delete: false # Prevent users from deleting documents in this collection
     editor:
-      preview: false
+      preview: true
     files:
       - file: configs/supportedFields.json
-        label: supported-fields
-        name: supported-fields
+        label: supported_fields
+        name: supported_fields
         fields:
-          - label: supported-fields
-            name: supported-fields
+          - label: supported_fields
+            name: supported_fields
             widget: list
-            field: 
-              label: supported-fields
-              name: supported-fields
-              widget: string
+            fields: 
+              - label: name
+                name: name
+                widget: string
+              - label: id
+                name: id
+                widget: string
+              - label: type
+                name: type
+                widget: string
+              - label: required
+                name: required
+                widget: boolean
+          - file: configs/validators.json
+            label: validators
+            name: validators
+            fields:
+              - label: validators
+                name: validators
+                widget: list
+                fields: 
+                  - label: name
+                    name: name
+                    widget: string
+                  - label: id
+                    name: id
+                    widget: string
+                  - label: regex
+                    name: regex
+                    widget: string
+
   - name: "Country Configs"
     label: "Configs"
     delete: false # Prevent users from deleting documents in this collection
@@ -36,19 +63,27 @@ collections: # A list of collections the CMS should be able to edit
         name: "xz-settings"
         fields:
           - label: Self-Service
-            name: self-service, 
+            name: self-service
             widget: list
-            field: 
-              label: Input field
-              name: input-field
-              widget: object
-              fields: 
-                - label: "Field"
-                  name: fieldType
-                  widget: "relation"
-                  collection: supported-fields
-                  file: supported-fields
-                  search_fields: [supported-fields.*.supported-fields]
-                  value_field: supported-fields.*.supported-fields
-                  display_fields: [supported-fields.*.supported-fields]
+            fields: 
+              - label: Field
+                name: field
+                widget: relation
+                collection: configs
+                file: supported_fields
+                search_fields: ["supported_fields.*.name"]
+                display_fields: ["supported_fields.*.name"]
+                value_field: "supported_fields.*.id"
+              - label: Validators
+                name: validators
+                widget: list
+                fields: 
+                  - label: Validator
+                    name: validator
+                    widget: relation
+                    collection: configs
+                    file: validators
+                    search_fields: ["validators.*.name"]
+                    display_fields: ["validators.*.name"]
+                    value_field: "validators.*.id"
             
