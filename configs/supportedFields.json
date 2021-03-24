@@ -1,7 +1,4 @@
 {
-  "supported-fields,": [
-    "firstName"
-  ],
   "supported-fields": [
     "firstname"
   ]
