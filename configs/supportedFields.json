@@ -1,0 +1,10 @@
+{
+  "supported_fields": [
+    {
+      "name": "First name",
+      "id": "firstName",
+      "type": "text",
+      "required": true
+    }
+  ]
+}
