@@ -9,5 +9,14 @@
       "name": "asd",
       "id": "qwe"
     }
+  ],
+  "supported_fields": [
+    {
+      "name": "First name",
+      "id": "firstName",
+      "type": "text",
+      "validateWith": "^\\\\w+$",
+      "required": true
+    }
   ]
 }
