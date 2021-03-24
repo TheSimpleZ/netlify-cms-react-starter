@@ -3,5 +3,11 @@
     "firstname",
     "asdasdasd",
     "qweqweqweqew"
+  ],
+  "cities": [
+    {
+      "name": "asd",
+      "id": "qwe"
+    }
   ]
 }
