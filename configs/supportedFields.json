@@ -3,8 +3,17 @@
     {
       "name": "First name",
       "id": "firstName",
-      "type": "text",
-      "required": true
+      "type": "text"
+    },
+    {
+      "name": "Last name",
+      "id": "lastName",
+      "type": "text"
+    },
+    {
+      "name": "Phone number",
+      "id": "telephoneMobile",
+      "type": "tel"
     }
   ]
 }

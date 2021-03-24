@@ -9,10 +9,8 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 
 collections: # A list of collections the CMS should be able to edit
   - name: configs
-    label: Fields
-    delete: false # Prevent users from deleting documents in this collection
-    editor:
-      preview: true
+    label: Supported configurations
+    hide: true
     files:
       - file: configs/supportedFields.json
         label: supported_fields
@@ -31,26 +29,25 @@ collections: # A list of collections the CMS should be able to edit
               - label: type
                 name: type
                 widget: string
-              - label: required
-                name: required
-                widget: boolean
-          - file: configs/validators.json
-            label: validators
+      - file: configs/validators.json
+        label: validators
+        name: validators
+        hide: true
+        fields:
+          - label: validators
             name: validators
-            fields:
-              - label: validators
-                name: validators
-                widget: list
-                fields: 
-                  - label: name
-                    name: name
-                    widget: string
-                  - label: id
-                    name: id
-                    widget: string
-                  - label: regex
-                    name: regex
-                    widget: string
+            allow_add: false
+            widget: list
+            fields: 
+              - label: name
+                name: name
+                widget: string
+              - label: id
+                name: id
+                widget: string
+              - label: regex
+                name: regex
+                widget: string
 
   - name: "Country Configs"
     label: "Configs"
@@ -74,16 +71,16 @@ collections: # A list of collections the CMS should be able to edit
                 search_fields: ["supported_fields.*.name"]
                 display_fields: ["supported_fields.*.name"]
                 value_field: "supported_fields.*.id"
-              - label: Validators
-                name: validators
-                widget: list
-                fields: 
-                  - label: Validator
-                    name: validator
-                    widget: relation
-                    collection: configs
-                    file: validators
-                    search_fields: ["validators.*.name"]
-                    display_fields: ["validators.*.name"]
-                    value_field: "validators.*.id"
-            
+              - label: Validator
+                name: validator
+                widget: relation
+                collection: configs
+                file: validators
+                multiple: true
+                search_fields: ["validators.*.name"]
+                display_fields: ["validators.*.name"]
+                value_field: "validators.*.id"
+              - label: Required
+                name: required
+                widget: boolean
+        
